@@ -36,10 +36,20 @@ class Search extends Component {
     .catch(err => this.setState({error : err.message}));
   }
 
+  saveArticle = article => {
+    console.log("I am trying to save this article");
+    console.log(article);
+
+    //call the API function to save the book into MongoDB
+    API.saveArticle({
+      title : article.headline.print_headline,
+      publishDate : article.pub_date,
+      url : article.web_url 
+    });
+  }
+
   render() {
     console.log(this.state);
-    // console.log(`Start Year : ${this.state.startYear}`);
-    // console.log(`End Year : ${this.state.endYear}`);
     return (
       <div>
         <div className="row">
@@ -86,17 +96,19 @@ class Search extends Component {
                       id="inputEndYear">
                     </input>
                   </div>
-                  <button type="submit" onClick={this.handleFormSubmit} className="btn btn-default">Search</button>
+                  <button type="submit" 
+                  onClick={this.handleFormSubmit} 
+                  className="btn btn-primary submit-form-btn">Search</button>
                 </form>
               </div>
             </div>
           </div>
         </div> 
         <div className="row">
-          <Results articles={this.state.articles}/>
+          <Results articles={this.state.articles} fnSaveArticle={this.saveArticle}/>
         </div>    
       </div>  
-    );
+    )
   }
 }
 

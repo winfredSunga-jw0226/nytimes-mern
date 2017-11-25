@@ -11,16 +11,18 @@ export default {
     return axios.get(url);
   },  
   // Gets the article with the given id
-  getArticle :  function(id) {
-    return axios.get("/api/articles/" + id);
+  getSavedArticles :  function() {
+    return axios.get("/api/saved");
   },
   // Deletes the article with the given id
   deleteArticle : function(id) {
-    return axios.delete("/api/articles/" + id);
+    return axios.delete("/api/saved/" + id);
   },
   // Saves an article to the database
   saveArticle : function(articleData) {
-    return axios.post("/api/articles", articleData);
+    console.log("I am here in the API file");
+    console.log(articleData);
+    return axios.post("/api/saved", articleData);
   }
 };
 

@@ -9,7 +9,7 @@ const ArticleSchema = new Schema({
     type : String,
     required : true
   },
-  date : {
+  publishDate : {
     type : String,
     required : true
   },
@@ -18,11 +18,15 @@ const ArticleSchema = new Schema({
     unique : true,
     required : true
   },
-  saved : {
-    type : Boolean,
-    default : false
-    //required : true
+  savedDate : {
+    type : String,
+    default : Date.now()
   },
+  // saved : {
+  //   type : Boolean,
+  //   default : false
+  //   //required : true
+  // },
   note : {
     type : Schema.Types.ObjectId,
     ref : "Note"
