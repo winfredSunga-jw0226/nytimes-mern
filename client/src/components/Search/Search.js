@@ -25,14 +25,10 @@ class Search extends Component {
 
     //send a get request to the NY Times API
     API.getArticles(this.state.searchTerm, this.state.startYear, this.state.endYear)
-    .then(res => {
-      if (res.status !== 200) {
-        throw new Error(res.data.message);
-      }
+    .then(res => 
       //pick only 5 articles from the response
-      this.setState({articles : res.data.response.docs.slice(0,5)}); 
-      //console.log(res.data.response.docs.slice(0,5));
-    })
+      this.setState({articles : res.data.response.docs.slice(0,5)}) 
+    )
     .catch(err => this.setState({error : err.message}));
   }
 
@@ -40,12 +36,15 @@ class Search extends Component {
     console.log("I am trying to save this article");
     console.log(article);
 
-    //call the API function to save the book into MongoDB
-    API.saveArticle({
-      title : article.headline.print_headline,
-      publishDate : article.pub_date,
-      url : article.web_url 
-    });
+    //call the API function to save the article into MongoDB
+      API.saveArticle(
+        {
+          title : article.headline.print_headline,
+          publishDate : article.pub_date,
+          url : article.web_url 
+        })
+        .then(res => window.location.reload())
+        .catch(err => console.log(err));
   }
 
   render() {

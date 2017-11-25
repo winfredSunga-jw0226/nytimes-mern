@@ -7,7 +7,7 @@ const Results = props =>
           <h3 className="panel-title">Results</h3>
         </div>
         <div className="panel-body">
-          {props.articles.map((article, index) => 
+          {props.articles.map( (article, index) => 
             <div className="results-article clearfix" key={index}>
               <button 
               className="btn btn-primary pull-right" 
