@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Results = props =>
     <div className="col-sm-6 col-sm-offset-3">
@@ -12,7 +12,7 @@ const Results = props =>
               <button 
               className="btn btn-primary pull-right" 
               type="submit"
-              onClick={() => props.fn(article)}>Save</button>
+              onClick={() => props.fnSaveArticle(article)}>Save</button>
               <div className="article-title">
                 <p>{article.headline.print_headline}</p>
               </div>
