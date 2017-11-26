@@ -3,8 +3,12 @@
   margin-right : 10px;
 }
 
-.saved-article {
-  margin : 10px 5px;
+.saved-articles-sub-container {
   border : 1px solid #f1eded;
-   padding : 5px 10px;
+  margin : 2px 0px;
+}
+
+.saved-articles-annotation-container {
+  border : 1px solid #f1eded;
+  margin-bottom : 15px;
 }
