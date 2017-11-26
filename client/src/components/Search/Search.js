@@ -46,6 +46,7 @@ class Search extends Component {
           console.log("I am now trying to refresh the saved articles panel");
           this.props.loadSavedArticles();
         })
+        //.then(this.setState({ clickedSave : true }))
         .catch(err => console.log(err));
   }
 
@@ -106,7 +107,7 @@ class Search extends Component {
           </div>
         </div> 
         <div className="row">
-          <Results articles={this.state.articles} fnSaveArticle={this.saveArticle}/>
+          <Results articles={this.state.articles} fnSaveArticle={this.saveArticle} savedArticles={this.props.savedArticles} savedArticleTitles={this.props.savedArticleTitles}/>
         </div>    
       </div>  
     )

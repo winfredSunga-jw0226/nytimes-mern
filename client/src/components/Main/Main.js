@@ -7,7 +7,8 @@ import API from "../../utils/API";
 class Main extends Component {
   state = {
     savedArticles : [],
-    deleteArticleId : ""
+    deleteArticleId : "",
+    savedArticleTitles : []
   };
 
   //when the component mounts, load all articles and save them to this.state.savedArticles
@@ -18,7 +19,16 @@ class Main extends Component {
   loadSavedArticles = () => {
     //call the API function to get saved articles from MongoDB
     API.getSavedArticles()
-      .then(res => this.setState( { savedArticles : res.data} ))
+      .then(res => {
+        this.setState( { savedArticles : res.data} );
+        this.setState( { savedArticleTitles : res.data.map(article => article.title)} );
+      })
+      .catch(err => console.log(err));
+  }
+
+  loadSavedArticleTitles = () => {
+    API.getSavedArticleTitles()
+      .then(res => this.setState( { savedArticleTitles : res.data} ))
       .catch(err => console.log(err));
   }
 
@@ -29,11 +39,12 @@ class Main extends Component {
   }
 
   render() {
+    //console.log(this.state.savedArticles);
     return (
       <div >
         <div className="container-fluid">
           <Jumbotron />
-          <Search savedArticles={this.state.savedArticles} loadSavedArticles={this.loadSavedArticles}/>
+          <Search savedArticles={this.state.savedArticles} loadSavedArticles={this.loadSavedArticles} savedArticleTitles={this.state.savedArticleTitles}/>
           <Saved savedArticles={this.state.savedArticles} onClickRemoveButton={this.removeArticle}/>
         </div>
       </div>
