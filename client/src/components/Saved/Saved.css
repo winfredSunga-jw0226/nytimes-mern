@@ -6,9 +6,22 @@
 .saved-articles-sub-container {
   border : 1px solid #f1eded;
   margin : 2px 0px;
+  height : 40px;
+}
+
+.saved-articles-sub-container div,
+.saved-articles-sub-container p, 
+.saved-articles-sub-container a {
+  margin : 8px 0px;
+}
+
+.saved-articles-sub-container button {
+  height : 100%;
+  margin-right : 0px;
 }
 
 .saved-articles-annotation-container {
   border : 1px solid #f1eded;
   margin-bottom : 15px;
+  height : 40px;
 }
