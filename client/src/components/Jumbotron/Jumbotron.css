@@ -1,0 +1,7 @@
+.jumbotron {
+  background-color : #467ab2;
+}
+
+h3, .jumbotron p {
+  color : white;
+}

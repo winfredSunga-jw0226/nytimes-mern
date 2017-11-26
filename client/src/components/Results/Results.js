@@ -1,8 +1,9 @@
 import React from "react";
+import "./Results.css";
 
 const Results = props =>
-    <div className="col-sm-6 col-sm-offset-3">
-      <div className="panel panel-default">
+    <div className="col-sm-8 col-sm-offset-2">
+      <div className="panel panel-primary">
         <div className="panel-heading">
           <h3 className="panel-title">Results</h3>
         </div>
@@ -14,7 +15,7 @@ const Results = props =>
               type="submit"
               onClick={() => props.fnSaveArticle(article)}>Save</button>
               <div className="article-title">
-                <p>{article.headline.print_headline}</p>
+                <p>{article.headline.main}</p>
               </div>
             </div>
           )}

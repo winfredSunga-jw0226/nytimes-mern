@@ -4,7 +4,10 @@ const savedArticlesController = require("../../controllers/savedArticlesControll
 //matches with "api/saved"
 router.route("/")
   .get(savedArticlesController.findAll)
-  .post(savedArticlesController.create)
+  .post(savedArticlesController.create);
+
+//matches with "api/saved/:id"
+router.route("/:id")
   .delete(savedArticlesController.remove);
 
 module.exports = router;

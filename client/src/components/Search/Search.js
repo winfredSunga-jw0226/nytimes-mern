@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Results from "../Results";
 import API from "../../utils/API";
 
-
 class Search extends Component {
   state = {
     searchTerm : "",
@@ -39,11 +38,14 @@ class Search extends Component {
     //call the API function to save the article into MongoDB
       API.saveArticle(
         {
-          title : article.headline.print_headline,
+          title : article.headline.main,
           publishDate : article.pub_date,
           url : article.web_url 
         })
-        .then(res => window.location.reload())
+        .then(res => {
+          console.log("I am now trying to refresh the saved articles panel");
+          this.props.loadSavedArticles();
+        })
         .catch(err => console.log(err));
   }
 
@@ -52,8 +54,8 @@ class Search extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-sm-6 col-sm-offset-3">
-            <div className="panel panel-default">
+          <div className="col-sm-8 col-sm-offset-2">
+            <div className="panel panel-primary">
               <div className="panel-heading">
                 <h3 className="panel-title">Search</h3>
               </div>
