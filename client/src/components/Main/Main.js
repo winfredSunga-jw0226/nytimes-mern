@@ -12,7 +12,7 @@ class Main extends Component {
   };
 
   //when the component mounts, load all articles and save them to this.state.savedArticles
-  componentDidMount() {
+  componentWillMount() {
     this.loadSavedArticles();
   }
   
