@@ -1,15 +1,17 @@
 {
-  "name": "mern",
+  "name": "nyt-mern",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "NYTimes MERN",
   "main": "server.js",
   "scripts": {
-    "server": "yarn build && node server.js",
-    "client": "cd client && npm run start",
-    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
-    "build": "cd client && npm run build",
+    "server": "yarn build && nodemon server.js",
+    "client": "cd client && yarn start",
+    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"yarn client\"",
+    "build": "cd client && yarn install && yarn build",
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "yarn build",
+    "prod": "node server.js"
   },
   "author": "",
   "license": "ISC",
