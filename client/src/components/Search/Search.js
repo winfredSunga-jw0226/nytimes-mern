@@ -107,7 +107,7 @@ class Search extends Component {
           </div>
         </div> 
         <div className="row">
-          <Results articles={this.state.articles} fnSaveArticle={this.saveArticle} savedArticles={this.props.savedArticles} savedArticleTitles={this.props.savedArticleTitles}/>
+          <Results articles={this.state.articles} fnSaveArticle={this.saveArticle} savedArticleTitles={this.props.savedArticleTitles}/>
         </div>    
       </div>  
     )
